@@ -2,7 +2,7 @@
 initAsta();
 let items;
 async function initAsta() {
-    let response = await fetch("http://127.0.0.1:8100/items");
+    let response = await fetch("http://astaverleih.herokuapp.com/items");
     items = await response.json();
     generateAstaProducts();
 }
@@ -30,9 +30,9 @@ function generateAstaProducts() {
 }
 function statusAendern() {
     let item = items.find(item => item.title === this.parentElement.children[0].children[0].innerHTML);
-    let url = `http://127.0.0.1:8100/statusAendern/${item._id}`;
+    let url = `http://astaverleih.herokuapp.com/statusAendern/${item._id}`;
     console.log(url);
     fetch(url);
-    window.location.href = "http://127.0.0.1:5500/sites/asta.html";
+    window.location.href = "https://8kate.github.io/GIS-Abgabe-20-21/sites/asta.html";
 }
 //# sourceMappingURL=asta.js.map
