@@ -23,7 +23,7 @@ function generateReservierungen (item: Item): HTMLParagraphElement {
 }
 
 async function getItem(_id: string): Promise<Item> {
-    let response: Response = await fetch("https://astaverleih.herokuapp.com//astaverleih.herokuapp.com/item/id/" + _id);
+    let response: Response = await fetch("https://astaverleih.herokuapp.com/item/id/" + _id);
     let item: Item = await response.json();
     console.log(item);
     return item;
@@ -33,7 +33,7 @@ async function sendReservierung(): Promise<void> {
     let inputField: HTMLInputElement = <HTMLInputElement>document.getElementById("name");
     let reservierung: Reservierungen = JSON.parse(localStorage.getItem("reservierungen"));
     reservierung.name = inputField.value.trim();
-    await fetch("https://astaverleih.herokuapp.com//astaverleih.herokuapp.com/reservierung", {
+    await fetch("https://astaverleih.herokuapp.com/reservierung", {
         method: "POST",
         mode: "no-cors",
         headers: {
@@ -41,5 +41,5 @@ async function sendReservierung(): Promise<void> {
         },
         body: JSON.stringify(reservierung)
     });
-    window.location.href = "https://astaverleih.herokuapp.com//8kate.github.io/GIS-Abgabe-20-21/sites/verleih.html";
+    window.location.href = "https://8kate.github.io/GIS-Abgabe-20-21/sites/verleih.html";
 }

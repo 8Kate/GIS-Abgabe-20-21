@@ -5,7 +5,7 @@ var verleih;
     initialize();
     async function initialize() {
         localStorage.clear();
-        let response = await fetch("https://astaverleih.herokuapp.com//astaverleih.herokuapp.com/items");
+        let response = await fetch("https://astaverleih.herokuapp.com/items");
         items = await response.json();
         console.log(items);
         generateItems();

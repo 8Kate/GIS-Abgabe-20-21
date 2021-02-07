@@ -5,7 +5,7 @@ namespace verleih {
     
     async function initialize(): Promise<void> {
         localStorage.clear();
-        let response: Response = await fetch("https://astaverleih.herokuapp.com//astaverleih.herokuapp.com/items");
+        let response: Response = await fetch("https://astaverleih.herokuapp.com/items");
         items = await response.json();
         console.log(items);
         generateItems();
