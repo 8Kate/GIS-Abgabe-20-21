@@ -44,14 +44,14 @@ async function handleRequest (req: Http.IncomingMessage, res: Http.ServerRespons
         handleReservierung(req, res);
     } else if (req.method === "GET") {
         if (req.url) {
-            let idRegEx: RegExp = new RegExp("item\/id\/[0-9a-fA-F]{24}$");
+            let idRegEx: RegExp = new RegExp("item\/id\/[0-9a-fA-F]{24}$");//objekt, ruft testfunktionen um pathname zu testen
             let url: Url.UrlWithParsedQuery = Url.parse(req.url, true);
     
             if (url.pathname === "/items") {
                 getItems(res);
             } else if (idRegEx.test(url.pathname.toString())) {
                 getItem(res, url);
-            } else if (url.pathname.match(/statusAendern\/[0-9a-fA-F]{24}/)) {
+            } else if (url.pathname.match(/statusAendern\/[0-9a-fA-F]{24}/)) {//die matchfunktion nimmt regex entgegen
                 updateStatus(res, url);
             }
         }
